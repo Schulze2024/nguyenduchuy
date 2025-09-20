@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đăng ký</title>
+    <title>Đăng nhập</title>
     <style>
       body {
         text-align: center;
         font-family: Arial, sans-serif;
-        background-color: #893333;
+        background-image: url("anh/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -50,44 +53,15 @@
   </head>
   <body>
     <div class="hop_chua">
-      <h2>Đăng Ký Tài Khoản</h2>
-      <form action="Xuly_Dangky.php" method="post">
-        <input
-          title="abc@gmail.com"
-          pattern="^[a-zA-Z0-9_]+@gmail\.com$"
-          type="email"
-          name="taikhoan"
-          placeholder="email"
-          required
-        />
-        <input
-          type="text"
-          name="tennguoidung"
-          placeholder="Tên người dùng"
-          required
-        />
-        <input
-          type="text"
-          pattern="(?=.*[A-Z])(?=.*[0-9]).{6,20}"
-          title="Ít nhất 6 ký tự, có 1 chữ hoa và 1 số"
-          type="password"
-          name="matkhau"
-          placeholder="Mật khẩu"
-          required
-        />
-        <input
-          type="text"
-          pattern="(?=.*[0-9]).{10,10}"
-          title="10 số"
-          name="sdt"
-          placeholder="Số điện thoại"
-          required
-        />
-        <button type="submit">Đăng Ký</button>
+      <h2>Đăng nhập</h2>
+      <form action="index.html" method="post">
+        <input type="text" name="taikhoan" placeholder="Tài khoản" required />
+        <input type="password" name="matkhau" placeholder="Mật khẩu" required />
+        <button type="submit">Đăng nhập</button>
         <div class="required-link">
           <p>
-            Bạn đã có tài khoản?
-            <a href="index.html">Đăng nhập tại đây</a>
+            Bạn chưa có tài khoản?
+            <a href="Form_DangKy.html">Đăng Ký tại đây</a>
           </p>
         </div>
       </form>
