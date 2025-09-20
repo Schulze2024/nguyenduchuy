@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Giao diện bán hàng</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f2f5;
+      }
+      .dang-xuat {
+        margin-left: auto;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+      .top-bar {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .search-bar {
+        width: 300px;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+
+      .dang-xuat {
+        margin-left: auto;
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 12px;
+        background-color: #eee;
+        border-radius: 6px;
+      }
+
+      .dang-xuat:hover {
+        background-color: #ccc;
+      }
+
+      .main {
+        display: flex;
+      }
+      .product-list {
+        width: 70%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        flex-grow: 1;
+      }
+      .product {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        text-align: center;
+        transition: transform 0.2s;
+      }
+      .product:hover {
+        transform: scale(1.03);
+      }
+      .product img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      .product button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .product button:hover {
+        background-color: #218838;
+      }
+      .product a {
+        display: block;
+        margin-top: 8px;
+        color: #007bff;
+        text-decoration: none;
+      }
+      .product a:hover {
+        text-decoration: underline;
+      }
+      .cart {
+        width: 220px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .cart-list {
+        max-height: 300px;
+        overflow-y: auto;
+        border-top: 1px solid #ccc;
+        margin-top: 10px;
+        padding-top: 10px;
+      }
+      .cart-item {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+      .cart-bottom {
+        margin-top: auto;
+      }
+      .cart button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #dc3545;
+        color: white;
+        cursor: pointer;
+      }
+      .cart button:hover {
+        background-color: #c82333;
+      }
+      .cart a {
+        display: block;
+        margin-top: 12px;
+        text-align: center;
+        color: #007bff;
+        text-decoration: none;
+      }
+      .cart a:hover {
+        text-decoration: underline;
+      }
+      .product img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body background="anh/background.jpg">
+    <div class="top-bar">
+      <img
+        src="sanpham/siuuuuuuuuu.jpg"
+        alt="Logo"
+        class="logo"
+        width="50px"
+        style="border-radius: 999px"
+      />
+      <input
+        type="text"
+        placeholder="Tìm kiếm"
+        class="search-bar"
+        id="searchInput"
+        oninput="timKiemSanPham()"
+      />
+      <a href="form_Dangnhap.html" class="dang-xuat">Đăng xuất</a>
+    </div>
+    <div class="main">
+      <div class="product-list">
+        <div class="product" data-gia="149000">
+          <img src="sanpham/den.webp" alt="Ảnh sản phẩm" />
+          <p>Bộ đồ thể thao đen</p>
+          <span>Giá: 149.000₫</span>
+          <button onclick="themVaoGio(this)">thêm vào giỏ hàng</button>
+          <a href="nguoiban.html">gao đen</a>
+        </div>
+
+        <div class="product" data-gia="125000">
+          <img src="sanpham/do.jpg" alt="Ảnh sản phẩm" />
+          <p>Bộ đồ thể thao Việt Nam</p>
+          <span>Giá: 125.000₫</span>
+          <button onclick="themVaoGio(this)">thêm vào giỏ hàng</button>
+          <a href="nguoiban.html">gao đỏ</a>
+        </div>
+
+        <div class="product" data-gia="179000">
+          <img src="sanpham/hong.jpg" alt="Ảnh sản phẩm" />
+          <p>Bộ đồ thể thao hồng</p>
+          <span>Giá: 179.000₫</span>
+          <button onclick="themVaoGio(this)">thêm vào giỏ hàng</button>
+          <a href="nguoiban.html">gao hồng</a>
+        </div>
+
+        <div class="product" data-gia="137000">
+          <img src="sanpham/trang.webp" alt="Ảnh sản phẩm" />
+          <p>Bộ đồ thể thao trắng</p>
+          <span>Giá: 137.000₫</span>
+          <button onclick="themVaoGio(this)">thêm vào giỏ hàng</button>
+          <a href="nguoiban.html">gao trắng</a>
+        </div>
+
+        <div class="product" data-gia="160000">
+          <img src="sanpham/trangdo.webp" alt="Ảnh sản phẩm" />
+          <p>Bộ đồ thể thao trắng đỏ</p>
+          <span>Giá: 160.000₫</span>
+          <button onclick="themVaoGio(this)">thêm vào giỏ hàng</button>
+          <a href="nguoiban.html">gao trắng đỏ</a>
+        </div>
+
+        <div class="product" data-gia="160000">
+          <img src="sanpham/trangxanhbien.webp" alt="Ảnh sản phẩm" />
+          <p>Bộ đồ thể thao trắng xanh biển</p>
+          <span>Giá: 160.000₫</span>
+          <button onclick="themVaoGio(this)">thêm vào giỏ hàng</button>
+          <a href="nguoiban.html">gao trắng xanh</a>
+        </div>
+
+        <div class="product" data-gia="99000">
+          <img src="sanpham/vang.jpg" alt="Ảnh sản phẩm" />
+          <p>Bộ đồ thể thao vàng</p>
+          <span>Giá: 99.000₫</span>
+          <button onclick="themVaoGio(this)">thêm vào giỏ hàng</button>
+          <a href="nguoiban.html">gao vàng</a>
+        </div>
+
+        <div class="product" data-gia="129000">
+          <img src="sanpham/xanhbien.webp" alt="Ảnh sản phẩm" />
+          <p>Bộ đồ thể thao xanh biển</p>
+          <span>Giá: 129.000₫</span>
+          <button onclick="themVaoGio(this)">thêm vào giỏ hàng</button>
+          <a href="nguoiban.html">gao xanh</a>
+        </div>
+      </div>
+
+      <div class="cart">
+        <p><strong>Danh sách giỏ hàng</strong></p>
+        <div id="danhSachGioHang"></div>
+        <p id="tongTien"><em>Tổng tiền: 0₫</em></p>
+        <div id="cart-list" class="cart-list"></div>
+        <div class="cart-bottom">
+          <button onclick="muaHang()">mua</button>
+          <button onclick="xoaGioHang()">xóa</button>
+          <a href="hotro.html">hỗ trợ</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const gioHang = [];
+      let tongTien = 0;
+
+      function themVaoGio(button) {
+        const product = button.closest(".product");
+        const ten = product.querySelector("p").textContent;
+        const gia = parseInt(product.getAttribute("data-gia"));
+
+        gioHang.push({ ten, gia });
+        tongTien += gia;
+        capNhatGioHang();
+      }
+
+      function capNhatGioHang() {
+        const cartList = document.getElementById("cart-list");
+        const tongTienSpan = document.getElementById("tongTien");
+        cartList.innerHTML = "";
+
+        gioHang.forEach((item, index) => {
+          const div = document.createElement("div");
+          div.className = "cart-item";
+          div.textContent = `${index + 1}. ${
+            item.ten
+          } - ${item.gia.toLocaleString()}₫`;
+          cartList.appendChild(div);
+        });
+
+        tongTienSpan.textContent = `Tổng tiền: ${tongTien.toLocaleString()}₫`;
+      }
+
+      function xoaGioHang() {
+        gioHang.length = 0;
+        tongTien = 0;
+        capNhatGioHang();
+      }
+
+      function muaHang() {
+        if (gioHang.length === 0) {
+          alert("Giỏ hàng đang trống!");
+        } else {
+          const danhSach = gioHang
+            .map((sp, i) => `${i + 1}. ${sp.ten} - ${sp.gia.toLocaleString()}₫`)
+            .join("\n");
+          alert(
+            "Bạn đã mua các sản phẩm:\n" +
+              danhSach +
+              `\nTổng tiền: ${tongTien.toLocaleString()}₫`
+          );
+          xoaGioHang();
+        }
+      }
+
+      function timKiemSanPham() {
+        let tuKhoa = document.getElementById("searchInput").value.toLowerCase();
+        let danhSach = document.querySelectorAll(".product-list .product");
+
+        danhSach.forEach((sp) => {
+          let ten = sp.querySelector("p").textContent.toLowerCase();
+          if (ten.includes(tuKhoa)) {
+            sp.style.display = "block";
+          } else {
+            sp.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

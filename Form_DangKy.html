@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: #893333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .hop_chua {
+        background-color: #fff;
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+      }
+      .hop_chua h2 {
+        margin-bottom: 15px;
+        font-size: 24px;
+      }
+      .hop_chua input {
+        width: 94%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .hop_chua button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .hop_chua button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hop_chua">
+      <h2>Đăng Ký Tài Khoản</h2>
+      <form action="Xuly_Dangky.php" method="post">
+        <input
+          title="abc@gmail.com"
+          pattern="^[a-zA-Z0-9_]+@gmail\.com$"
+          type="email"
+          name="taikhoan"
+          placeholder="email"
+          required
+        />
+        <input
+          type="text"
+          name="tennguoidung"
+          placeholder="Tên người dùng"
+          required
+        />
+        <input
+          type="text"
+          pattern="(?=.*[A-Z])(?=.*[0-9]).{6,20}"
+          title="Ít nhất 6 ký tự, có 1 chữ hoa và 1 số"
+          type="password"
+          name="matkhau"
+          placeholder="Mật khẩu"
+          required
+        />
+        <input
+          type="text"
+          pattern="(?=.*[0-9]).{10,10}"
+          title="10 số"
+          name="sdt"
+          placeholder="Số điện thoại"
+          required
+        />
+        <button type="submit">Đăng Ký</button>
+        <div class="required-link">
+          <p>
+            Bạn đã có tài khoản?
+            <a href="form_Dangnhap.html">Đăng nhập tại đây</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

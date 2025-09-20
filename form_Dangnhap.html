@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-image: url("anh/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .hop_chua {
+        background-color: #fff;
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+      }
+      .hop_chua h2 {
+        margin-bottom: 15px;
+        font-size: 24px;
+      }
+      .hop_chua input {
+        width: 94%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .hop_chua button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .hop_chua button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hop_chua">
+      <h2>Đăng nhập</h2>
+      <form action="Xuly_Dangnhap.php" method="post">
+        <input type="text" name="taikhoan" placeholder="Tài khoản" required />
+        <input type="password" name="matkhau" placeholder="Mật khẩu" required />
+        <button type="submit">Đăng nhập</button>
+        <div class="required-link">
+          <p>
+            Bạn chưa có tài khoản?
+            <a href="Form_DangKy.html">Đăng Ký tại đây</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
